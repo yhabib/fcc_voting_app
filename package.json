@@ -1,0 +1,27 @@
+{
+  "name": "fcc_voting_app",
+  "version": "1.0.0",
+  "description": "Full stack JavaScript app",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha -w server.js test.js routes/**"
+  },
+  "keywords": [
+    "freecodecamp",
+    "node",
+    "express",
+    "angular",
+    "mongodb"
+  ],
+  "author": "Yusef Habib",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.15",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
+  }
+}

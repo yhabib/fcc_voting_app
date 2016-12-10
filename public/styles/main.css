@@ -1,0 +1,10 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    font-size: 62,5%;       /* 1 rem --> 10px */
+}
