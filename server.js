@@ -6,7 +6,9 @@ const MONGOUSERPSW = process.env.MONGO_USER_PSW;
 let express = require('express'),
     pug = require('pug'),
     path = require('path'),
-    mongodb = require('mongodb');
+    mongodb = require('mongodb'),
+    mongoose = require('mongoose'),
+    morgan = require('morgan');
     
 /********************************************************************************
     -- ROUTES --
@@ -37,7 +39,8 @@ mongo.connect(url, (err, db) => {
     }
 });
 
-app.use(express.static('public'))
+app.use(morgan('dev'))
+    .use(express.static('public'))
     .set('views', path.join(__dirname, 'public/views'))
     .set('view engine', 'pug');
 
