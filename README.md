@@ -14,8 +14,8 @@
 
 ## Architecture:
 
-1. #### Schema:
-    ```javascript 
+1. **Schema:**
+```javascript 
     {
         pollName: {
             type: String,
@@ -43,10 +43,11 @@
             { user: String }
         ]
     }
-    ```
+```
 
 &nbsp;
-2. #### Routes:
+2. **Routes:**
+
     * _/_
         * Shows all polls as a list to un/authenticated users.
         * Links to:
@@ -74,7 +75,8 @@
         * After it (or as a logged user that has alread voted) user can see results
 
 &nbsp;
-3. #### Specifications:
+3. **Specifications:**
+
     * Front End:
         * PUG(Jade)
         * Bootstrap3
