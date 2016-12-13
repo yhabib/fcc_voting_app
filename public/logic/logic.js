@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("initialized");
     
-    // Matirialize initializations!!
+    // Materialize initializations!!
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
 });
