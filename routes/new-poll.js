@@ -11,12 +11,14 @@ router
     .post((req, res) => {
         let title = req.body.title,
             options = [], 
-            creator = "Admin";
+            creator = req.body.creator;
         
         Object.keys(req.body).forEach(k => {
             if(k.toLowerCase().indexOf('option') > -1) 
                 options.push(req.body[k]);
         });
+
+        // Get name of the creator:
     
 
         interface.insertPoll({name: title, options: options, creator: creator}, err => {
