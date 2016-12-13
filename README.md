@@ -47,47 +47,47 @@
 
 &nbsp;
 2. **Routes:**
-
-    * _/_
-        * Shows all polls as a list to un/authenticated users.
-        * Links to:
-            * Login Page
-            * Poll page (authenticated)
-            * New Poll Page (authenticated)
-    * _new-poll_(authenticated)
-        * POST
-        * Create a new poll with:
-            * Title or question
-            * Option 1 and Option 2(required)
-            * More options
-        * Links to:
-            * Home page
-            * Poll page (authenticated)
-            * My Polls Page (authenticated)
-    * _my-polls_(authenticated):
-        * Shows all my polls
-        * Links to:
-            * Home page
-            * Poll page (authenticated)
-            * New Poll Page (authenticated
-    * _poll/${id}_
-        * User can vote - POST
-        * After it (or as a logged user that has alread voted) user can see results
+* __/__
+    * Shows all polls as a list to un/authenticated users.
+    * Links to:
+        * Login Page
+        * Poll page (authenticated)
+        * New Poll Page (authenticated)
+* __/new-poll__(authenticated)
+    * POST
+    * Create a new poll with:
+        * Title or question
+        * Option 1 and Option 2(required)
+        * More options
+    * Links to:
+        * Home page
+        * Poll page (authenticated)
+        * My Polls Page (authenticated)
+* __/my-polls__(authenticated):
+    * Shows all my polls
+    * Links to:
+        * Home page
+        * Poll page (authenticated)
+        * New Poll Page (authenticated
+* __/poll/${id}__
+    * User can vote - POST
+    * After it (or as a logged user that has alread voted) user can see results
 
 &nbsp;
 3. **Specifications:**
 
-    * Front End:
-        * PUG(Jade)
-        * Bootstrap3
-    * Back End:
-        * NodeJS
-        * Express
-        * Request
-        * Multer
-    * Testing(Backend:
-        * Mocha
-        * Supertest
-    * Other
-        * MongoDB + mLab
-        * Heroku
+* Front End:
+    * PUG(Jade)
+    * jQuery
+    * Materialize
+* Back End:
+    * NodeJS
+    * Express
+    * Request
+    * Multer
+* Testing(Backend:
+    * Mocha
+    * Supertest
+* Other
+    * MongoDB + mLab
+    * Heroku
