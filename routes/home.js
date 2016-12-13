@@ -12,15 +12,11 @@ router
                 creator: "Ad",
                 options: [ "a", "b"]
             };
-
-        interface.insertPoll(obj, (err) => {
-            if(err) throw err;
-            else console.log("inserted");
-        });        
+      
         interface.getPolls({}, (err, docs) => {
             if(err) throw err;
             else 
-                res.render('index', {polls: docs});
+                res.render('index', {polls: docs, user: {name: "Yusef"}});
         });
     });
 
