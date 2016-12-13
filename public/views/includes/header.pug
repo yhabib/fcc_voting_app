@@ -14,17 +14,21 @@ html(lang="en")
     body
         nav
             .nav-wrapper
-                a.brand-logo(href="#!") VotApp
-                a(href="#", data-activates="mobile-demo", class="button-collapse"): i.material-icons menu
-                ul.right.hide-on-med-and-down
-                    li: a(href="/") New Poll
-                    li: a(href="/") My Polls
-                    li: a.dropdown-button(href="#!", data-activates="dropdown1") #{user} Yusef<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
-                    ul(id='dropdown1', class='dropdown-content')
-                        li: a(href="/") Logout
-                ul(class="side-nav", id="mobile-demo")
-                    li: a(href="/") New Poll
-                    li: a(href="/") My Polls
-                    li: a.dropdown-button(href="#!", data-activates="dropdown2") #{user} Yusef<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
-                    ul(id='dropdown2', class='dropdown-content')
-                        li: a(href="/") Logout
+                a.brand-logo(href="/") VotApp
+                if !user.name
+                    ul.right
+                        li: a(href="/login").right Sign In with Twitter
+                else
+                    a(href="#", data-activates="mobile-demo", class="button-collapse"): i.material-icons menu
+                    ul.right.hide-on-med-and-down
+                        li: a(href="/new-poll") New Poll
+                        li: a(href="/") My Polls
+                        li: a.dropdown-button(href="#!", data-activates="dropdown1") #{user.name}<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
+                        ul(id='dropdown1', class='dropdown-content')
+                            li: a(href="/") Logout
+                    ul(class="side-nav", id="mobile-demo")
+                        li: a(href="/new-poll") New Poll
+                        li: a(href="/") My Polls
+                        li: a.dropdown-button(href="#!", data-activates="dropdown2") #{user.name}<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
+                        ul(id='dropdown2', class='dropdown-content')
+                            li: a(href="/") Logout
