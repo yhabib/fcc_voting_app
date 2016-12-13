@@ -16,33 +16,31 @@
 
 1. **Schema:**
 ```javascript 
-    {
-        pollName: {
-            type: String,
+{
+    pollName: {
+        type: String,
+        required: true
+    },
+    creator: {
+        type: String,
+        required: true
+    },
+    createdTime: {
+        type: Date,
+        default: Date.now
+    },
+    pollOptions: [{
+        value: { 
+            type:String,
             required: true
         },
-        creator: {
-            type: String,
+        voteCount: {
+            type: Number,
             required: true
-        },
-        createdTime: {
-            type: Date,
-            default: Date.now
-        },
-        pollOptions: [{
-            value: { 
-                type:String,
-                required: true
-             },
-             voteCount: {
-                 type: Number,
-                 required: true
-             }
-        }],
-        voters: [
-            { user: String }
-        ]
-    }
+        }
+    }],
+    voters: [ { user: String } ]
+}
 ```
 
 &nbsp;
@@ -91,3 +89,7 @@
 * Other
     * MongoDB + mLab
     * Heroku
+---
+## To Do's
+* Refactoring:
+    * Every time a user goes to / a db query is performed. Saving the db status?? and updating it when the user creates a new poll
