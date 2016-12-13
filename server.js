@@ -10,14 +10,16 @@ let express = require('express'),
     path = require('path'),
     mongodb = require('mongodb'),
     mongoose = require('mongoose'),
-    morgan = require('morgan');
+    morgan = require('morgan'),
+    bodyParser = require('body-parser');
 
 
 /********************************************************************************
     -- ROUTES --
 ********************************************************************************/
 
-let home = require('./routes/home');
+let home = require('./routes/home'),
+    newPoll = require('./routes/new-poll');
 
 
 /********************************************************************************
@@ -37,15 +39,15 @@ url = "mongodb://localhost:27017/fcc_voting_app";
 ********************************************************************************/
 mongoose.Promise = global.Promise;
 mongoose.connect(url, (err, db) => {
-    if(err) 
-        throw err;
-    else {
-        console.log( 'Success: Connected to DB' );
-        app.use('/', home);
-    }
+    if(err) throw err;
+    else console.log( 'Success: Connected to DB' );
 });
 
 app.use(morgan('dev'))
+    .use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use('/', home)
+    .use('/new-poll', newPoll)
     .use(express.static('public'))
     .set('views', path.join(__dirname, 'public/views'))
     .set('view engine', 'pug');
