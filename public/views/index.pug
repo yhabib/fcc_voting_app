@@ -1,13 +1,9 @@
 include ./includes/header.pug
 
 main
-    .jumbotron.container-fluid.text-center
-        h1.lead Dashboard
-        h3.lead What would you like today?
-        button.btn.btn-success New Pool
-        button.btn.btn-primary My Pools
-
-
+    .collection.row
+        each poll in polls
+            a(href="/").collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll
 
 
 include ./includes/footer.pug
