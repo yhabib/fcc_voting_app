@@ -3,10 +3,14 @@ let mongoose = require('mongoose'),
     Model = mongoose.model('Poll', schema, 'polls');
 
 
-exports.getPolls = function(rules, callback) {
-    Model.find(rules, callback);
+exports.getPolls = function(filter, projection, callback) {    
+    Model.find(filter, projection, callback);
 };
 
+
+// Cheks:
+    // Does the poll already exist?
+    // 
 exports.insertPoll = function(obj, callback) {
     let Poll = new Model({
             name: obj.name,
@@ -14,6 +18,6 @@ exports.insertPoll = function(obj, callback) {
             options: obj.options.map(opt => ({value: opt, count: 0})),
             voters: [] 
         });
-
+    
     Poll.save(callback);
 };
