@@ -7,6 +7,9 @@ exports.getPolls = function(filter, projection, callback) {
     Model.find(filter, projection, callback);
 };
 
+exports.getPollById = function(filter, callback) {   
+    Model.findOne(filter, callback);
+};
 
 // Cheks:
     // Does the poll already exist?
