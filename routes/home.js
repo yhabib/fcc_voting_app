@@ -7,13 +7,10 @@ let express = require('express'),
 router
     .route('/')
     .get((req, res) => {
-        let obj = {
-                name: "Peter",
-                creator: "Ad",
-                options: [ "a", "b"]
-            };
+        let filter = {}, 
+        projection = { name: 1 };
       
-        interface.getPolls({}, (err, docs) => {
+        interface.getPolls(filter, projection, (err, docs) => {
             if(err) throw err;
             else 
                 res.render('index', {polls: docs, user: {name: "Yusef"}});

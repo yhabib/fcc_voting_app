@@ -6,7 +6,7 @@ let express = require('express'),
 router
     .route('/')
     .get((req, res) => {
-        res.render('new-poll', {user: {}});
+        res.render('new-poll', {user: {name: "Yusef"}, route: "new-poll"});
     })
     .post((req, res) => {
         let title = req.body.title,

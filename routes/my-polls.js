@@ -3,22 +3,21 @@ let express = require('express'),
     router = express.Router();
 
 
-// This view only needs the title of the poll
+// This view only needs the title of the poll and the _id in case it clicks
 router
     .route('/')
     .get((req, res) => {
         let rules = {
                 creator: "Admin"
             },
-            projection = {
-                _id: 0,
-                name: 1
-            };
+            projection = { name: 1 };
         
-        interface.getPolls(rules, projection, (err, docs) => {            
+        interface.getPolls(rules, projection, (err, docs) => {
+            console.log(docs);
+                        
             if(err) throw err;
             else
-                res.render('my-polls', {polls: docs, user: {name: "Yusef"}});
+                res.render('my-polls', {polls: docs, user: {name: "Yusef"}, route:"my-polls"});
         });
     });
 
