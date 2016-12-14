@@ -20,7 +20,8 @@ let express = require('express'),
 
 let home = require('./routes/home'),
     newPoll = require('./routes/new-poll'),
-    myPolls = require('./routes/my-polls');
+    myPolls = require('./routes/my-polls'),
+    poll = require('./routes/poll');
 
 /********************************************************************************
     -- INIT --
@@ -49,6 +50,7 @@ app.use(morgan('dev'))
     .use('/', home)
     .use('/new-poll', newPoll)
     .use('/my-polls', myPolls)
+    .use('/poll', poll)
     .use(express.static('public'))
     .set('views', path.join(__dirname, 'public/views'))
     .set('view engine', 'pug');
