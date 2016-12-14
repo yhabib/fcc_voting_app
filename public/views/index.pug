@@ -3,7 +3,7 @@ include ./includes/header.pug
 main
     .collection.row
         each poll in polls
-            a(href="/").collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
+            a(href="/poll/"+poll._id).collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
 
 
 include ./includes/footer.pug
