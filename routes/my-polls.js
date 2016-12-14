@@ -12,9 +12,7 @@ router
             },
             projection = { name: 1 };
         
-        interface.getPolls(rules, projection, (err, docs) => {
-            console.log(docs);
-                        
+        interface.getPolls(rules, projection, (err, docs) => {                        
             if(err) throw err;
             else
                 res.render('my-polls', {polls: docs, user: {name: "Yusef"}, route:"my-polls"});
