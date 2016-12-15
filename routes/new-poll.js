@@ -11,7 +11,7 @@ router
     .post((req, res) => {
         let title = req.body.title,
             options = [], 
-            creator = req.body.creator;
+            creator = "Yusef";
         
         Object.keys(req.body).forEach(k => {
             if(k.toLowerCase().indexOf('option') > -1) 
@@ -23,7 +23,7 @@ router
 
         interface.insertPoll({name: title, options: options, creator: creator}, err => {
             if(err) throw err;
-            else res.json("New Poll inserted into the DB");
+            else res.redirect('/');
         });   
     });
 

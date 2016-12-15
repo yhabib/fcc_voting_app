@@ -2,25 +2,25 @@ include ./includes/header.pug
 
 main
     .row
-        .col.s10
+        form(method="post", enctype="application/x-www-form-urlencoded").col.s10
             .input_wrap
                 .row
                     .input-field.col.s10.offset-s1.m8.offset-m3
-                        input(id="title", type="text", class="validate")
+                        input(id="title", type="text", class="validate", name="title", required)
                         label(for="title") What is the subject of your poll
                 .row
                     .input-field.col.s8.offset-s2.m6.offset-m5
-                        input(id="optionA", type="text", class="validate")
+                        input(id="optionA", type="text", class="validate", name="optionA", required)
                         label(for="optionA") Option A
                 .row
                     .input-field.col.s8.offset-s2.m6.offset-m5
-                        input(id="optionB", type="text", class="validate")
+                        input(id="optionB", type="text", class="validate", name="optionB", required)
                         label(for="optionB") Option B
             .row
                 .input-field.col.s4.offset-s4.m3.offset-m2.push-m5
                     a.btn-floating.btn-large.waves-effect.waves-light.red#add: i.material-icons add
                 .input-field.col.s4.offset-s3.m3.offset-m3.pull-m5
-                    a.waves-effect.waves-light.btn.btn-large.red#create Create Poll
+                    input(type="submit", value="Create Poll").waves-effect.waves-light.btn.btn-large.red#create
                  
 
 include ./includes/footer.pug
