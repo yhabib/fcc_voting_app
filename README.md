@@ -94,5 +94,7 @@
 ## To Do's
 * Refactoring:
     * Every time a user goes to / a db query is performed. Saving the db status?? and updating it when the user creates a new poll
-    * Post goes wrong trying to insert into the DB it will hang-forever
-    * Update automatically the polls -> Handle error function? module?
+    * Post goes wrong trying to insert into the DB it will hang-forever -> Handle error function? module?
+    * Update automatically the polls, if a another user inserts a new poll how does the system recognize it? An update scheduler?
+    * What happes if it cannot connect to the DB? How do I treat it?
+    * Error pages - 404,...
