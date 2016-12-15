@@ -8,16 +8,11 @@ router
         let filter = {
                 _id: req.params.id
             };
-            console.log(filter);
-            
 
         interface.getPollById(filter, (err, doc) => {
-            if(err) throw err;
-            console.log(doc);
+            if(err) throw err;            
             res.render('poll', {poll: doc, user: {name: "Yusef"}});
         });
-        
-        
     });
 
 module.exports = router;
