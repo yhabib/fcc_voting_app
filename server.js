@@ -32,7 +32,6 @@ let mongo = mongodb.MongoClient,
     schema = require('./schema'),
     app = express();     
 
-url = "mongodb://localhost:27017/fcc_voting_app";
 
 
 /********************************************************************************
