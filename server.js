@@ -45,13 +45,13 @@ mongoose.connect(url, (err, db) => {
 });
 
 app.use(morgan('dev'))
+    .use(express.static('public'))
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: true }))
     .use('/', home)
     .use('/new-poll', newPoll)
     .use('/my-polls', myPolls)
     .use('/poll', poll)
-    .use(express.static('public'))
     .set('views', path.join(__dirname, 'public/views'))
     .set('view engine', 'pug');
 
