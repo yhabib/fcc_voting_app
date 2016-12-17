@@ -23,5 +23,5 @@ module.exports = new mongoose.Schema({
             required: true
         }
     }],
-    voters: [ { user: String } ]
+    voters: [ String ]
 });
