@@ -8,10 +8,10 @@ main
                     .collapsible-header 
                         span.collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
                     .collapsible-body
-                        ul
-                            each option in poll.options
-                                li #{option.value} <span class="badge">#{option.count}</span>
-                    //- a(href="/poll/"+poll._id).collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
-
-
+                        form(action="/poll/" + poll.id, method="post", enctype="application/x-www-form-urlencoded")
+                            ul 
+                                each option in poll.options
+                                    li: span.badge #{option.count}
+                                        input(type="submit" name="value" value=option.value).vote
+                                        
 include ./includes/footer.pug
