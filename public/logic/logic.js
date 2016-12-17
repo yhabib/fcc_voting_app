@@ -1,16 +1,15 @@
 $(document).ready(function() {
-    let max_fields = 10,
-        box_count = 2,
-        letters = ["c", "d", "e", "f", "g", "h", "i", "j", "k"],
-        wrapper = $(".input_wrap"),
-        add_button = $("#add");
-        
-    
     // Materialize initializations!!
     $(".dropdown-button").dropdown();
     $(".button-collapse").sideNav();
 
 
+    // New Poll logic
+    let max_fields = 10,
+        box_count = 2,
+        letters = ["c", "d", "e", "f", "g", "h", "i", "j", "k"],
+        wrapper = $(".input_wrap"),
+        add_button = $("#add");            
 
     add_button.click(function(e) {
         e.preventDefault();
@@ -23,10 +22,13 @@ $(document).ready(function() {
         wrapper.append(template);
     });
 
-    // Special syntax
+    // Special syntax why??
     wrapper.on("click", "#remove", function(e) {
         e.preventDefault(); 
         $(this).parent('div').remove()
         box_count--;
     });
+
+    // Voting 
+
 });
