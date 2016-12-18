@@ -3,7 +3,10 @@ let mongoose = require('mongoose'),
     Model = mongoose.model('Poll', schema, 'polls');
 
 
-exports.getPollById = function(query, callback) {   
+exports.getPollById = function(id, callback) {   
+    let query = {
+        _id: id
+    };
     Model.findOne(query, callback);
 };
 
@@ -30,15 +33,14 @@ exports.findOneAndUpdate = function(id, voter, value, callback) {
             _id: id,
             voters: { $nin: [voter] },
             "options.value": value
-        },
-        update = { 
+          },
+          update = { 
             $push: { voters: voter },
             $inc: { "options.$.count": 1 }
-        },
-        options = { new: true };
+          },
+          options = { new: true };
 
         console.log(query);
-        
         console.log(options);
     
     Model.findOneAndUpdate(query, update, options, callback);
