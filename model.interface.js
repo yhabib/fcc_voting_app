@@ -39,9 +39,6 @@ exports.findOneAndUpdate = function(id, voter, value, callback) {
             $inc: { "options.$.count": 1 }
           },
           options = { new: true };
-
-        console.log(query);
-        console.log(options);
     
     Model.findOneAndUpdate(query, update, options, callback);
 };

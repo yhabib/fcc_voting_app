@@ -26,8 +26,10 @@ footer {
     background-color: rgb(238, 110, 115);
     text-align: center;
 }
+.title {
+    height:  20%;
+}
 .canvas {
-    max-width: 35rem;
-    max-height: 30rem;
+    max-height: 80%;
     margin: 0 auto;
 }
