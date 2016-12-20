@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha -w server.js test.js routes/**"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhabib/fcc_voting_app.git"
+  },
   "keywords": [
     "freecodecamp",
     "node",
