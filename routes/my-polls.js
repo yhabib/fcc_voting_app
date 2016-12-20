@@ -8,7 +8,7 @@ router
     .route('/')
     .get((req, res) => {
         let rules = {
-                creator: "Admin"
+                creator: "Yusef"
             },
             projection = { name: 1 };
         
@@ -16,6 +16,15 @@ router
             if(err) throw err;
             else
                 res.render('my-polls', {polls: docs, user: {name: "Yusef"}, route:"my-polls"});
+        });
+    })
+    .post((req, res) => {
+        const id = req.body.id;
+        
+        // Delete post with id
+        interface.findOneAndRemove(id, (err, docs) => {                        
+            if(err) throw err;
+            else res.redirect('./');
         });
     });
 

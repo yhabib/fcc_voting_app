@@ -42,3 +42,11 @@ exports.findOneAndUpdate = function(id, voter, value, callback) {
     
     Model.findOneAndUpdate(query, update, options, callback);
 };
+
+exports.findOneAndRemove = function(id, callback) {
+    const query = {
+            _id: id,
+        },
+        options = {};
+    Model.findOneAndRemove(query, options, callback);
+};
