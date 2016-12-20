@@ -1,4 +1,5 @@
 # FCC - Voting App
+As a characteristic this app is being implement with no js client code. The idea here is to focus all the logic of the App in the backend, this is done this way for future comparisions between approaches.
 
 ## User Stories:
 * As an authenticated user, I can keep my polls and come back later to access them.
@@ -73,16 +74,15 @@
 
 &nbsp;
 3. **Specifications:**
+There is almost none client js code. The .pug templates have all the logic in order to talk with the Backend without needing a client part.
 
 * Front End:
     * PUG(Jade)
-    * jQuery
     * Materialize
 * Back End:
     * NodeJS
     * Express
-    * Request
-    * Multer
+    * Passport + Passport Twitter
 * Testing(Backend:
     * Mocha
     * Supertest
