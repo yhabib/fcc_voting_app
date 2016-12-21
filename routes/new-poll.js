@@ -19,12 +19,11 @@ router
         });
 
         // Get name of the creator:
-    
-
         interface.insertPoll({name: title, options: options, creator: creator}, err => {
             if(err) throw err;
             else res.redirect('/');
         });   
+        
     });
 
 

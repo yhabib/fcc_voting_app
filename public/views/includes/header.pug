@@ -17,7 +17,7 @@ html(lang="en")
                 a.brand-logo(href="/") VotApp
                 if !user.name
                     ul.right
-                        li: a(href="/login").right Sign In with Twitter
+                        li: a(href="/auth/twitter").right Sign In with Twitter
                 else
                     a(href="#", data-activates="mobile-demo", class="button-collapse"): i.material-icons menu
                     ul.right.hide-on-med-and-down

@@ -13,7 +13,7 @@ router
         interface.getPolls(filter, projection, (err, docs) => {            
             if(err) throw err;
             else 
-                res.render('index', {polls: docs, user: {name: "Yusef"}});
+                res.render('index', {polls: docs, user: {}});
         });
     });
 
