@@ -1,10 +1,11 @@
 include ./includes/header.pug
 
 main
-    .collection.row
+    .collection.my_polls
         each poll in polls
-            a(href="/poll/" + poll._id).collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
-            form(method="post", enctype="application/x-www-form-urlencoded")
-                button(type="submit", name="id", value=poll._id) XBUTTON
+            li.collection-item
+                a(href="/poll/" + poll._id)= poll.name
+                form(method="post", enctype="application/x-www-form-urlencoded")
+                    button(type="submit", name="id", value=poll._id): i.material-icons cancel
 
 include ./includes/footer.pug

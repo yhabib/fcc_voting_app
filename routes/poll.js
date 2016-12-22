@@ -8,6 +8,24 @@ let express = require('express'),
 
 router
     .route('/:id')
+    .get((req, res) => {
+        let session = req.session.passport || {},
+            id = req.params.id;
+            
+        interface.getPollById(id, (err, doc) => {
+                    if (err) throw err;
+
+                    const count = [],
+                        labels = [];
+
+                    doc.options.forEach(option => {
+                        count.push(option.count);
+                        labels.push(option.value);
+                    });
+
+                    res.render('poll', { poll: doc, count: count, labels: labels, date: doc.createdTime.toDateString(), user: session });
+                });
+    })
     .post((req, res) => {
         let session = req.session.passport || {},
             id = req.params.id,
