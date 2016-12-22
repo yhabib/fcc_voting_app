@@ -29,8 +29,7 @@ mongoose.connect(url, (err, db) => {
 passport.serializeUser((user, done) => {    
     const userInfo = {
         userName: user.username,
-        displayName: user.displayName,
-        pic: user.photos
+        displayName: user.displayName
     };
     done(null, userInfo);
 });
