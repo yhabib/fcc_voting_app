@@ -33,3 +33,23 @@ footer {
     max-height: 80%;
     margin: 0 auto;
 }
+.options {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.options-vote {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.options-vote span {
+    flex-grow: 1;
+    color: rgb(37, 126, 150);
+    padding-left: 10px;
+    padding-right: 15px;
+}
+.options-vote input {
+    font-size: 11px;
+}
