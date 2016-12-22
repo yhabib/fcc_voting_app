@@ -53,3 +53,29 @@ footer {
 .options-vote input {
     font-size: 11px;
 }
+
+.my_polls li {
+    display: flex;
+    align-items: center;
+}
+.my_polls li a {
+    flex-grow: 3;
+    color: #26a69a;
+    padding-left: 5%;
+}
+.my_polls li input {
+    flex-grow: 2;
+}
+.my_polls li button {
+    border: none;
+    background-color: transparent;
+    align-self: stretch;
+    padding: 0;
+}
+
+.collapsible li {
+    color: #26a69a;
+}
+.collapsible-header {
+    text-transform: uppercase;
+}
