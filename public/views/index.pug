@@ -9,9 +9,10 @@ main
                         span.collection-item.col.s10.offset-s1.m8.offset-m2.l6.offset-l3= poll.name
                     .collapsible-body
                         form(action="/poll/" + poll.id, method="post", enctype="application/x-www-form-urlencoded")
-                            ul 
+                            ul.options 
                                 each option in poll.options
-                                    li: span.badge #{option.count}
-                                        input(type="submit" name="value" value=option.value).vote
+                                    li.options-vote 
+                                        //- span #{option.count}
+                                        input(type="submit" name="value" value=option.value, title=option.count).btn
                                         
 include ./includes/footer.pug
