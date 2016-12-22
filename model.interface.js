@@ -31,14 +31,16 @@ exports.insertPoll = function(obj, callback) {
 exports.findOneAndUpdate = function(id, voter, value, callback) {
     const query = {
             _id: id,
-            voters: { $nin: [voter] },
             "options.value": value
           },
-          update = { 
-            $push: { voters: voter },
-            $inc: { "options.$.count": 1 }
-          },
+          update = { $inc: { "options.$.count": 1 }},
           options = { new: true };
+    
+    // If it is an unlogged user then I have not to insert data about him
+    if(!!voter) {
+        query.voters = { $nin: [voter] };
+        update.$push = { voters: voter };
+    }
     
     Model.findOneAndUpdate(query, update, options, callback);
 };
