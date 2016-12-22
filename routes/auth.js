@@ -4,13 +4,19 @@ let express = require('express'),
 
 
 router
-    .route('/')
+    .route('/login/twitter')
     .get(passport.authenticate('twitter'));
 
 router
-    .route('/return')
-    .get(passport.authenticate('twitter', { failureRedirect: '/login/twitter'}),
-        (req, res) => res.redirect('/') 
-    );
+    .route('/login/twitter/return')
+    .get(passport.authenticate('twitter', { failureRedirect: '/login/twitter' }),
+    (req, res) => res.redirect('/'));
+
+router
+    .route('/logout')
+    .get((req, res) => {
+        req.logout();
+        res.redirect('/')
+    });
 
 module.exports = router;

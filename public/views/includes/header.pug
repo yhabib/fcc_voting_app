@@ -15,7 +15,7 @@ html(lang="en")
         nav
             .nav-wrapper
                 a.brand-logo.left(href="/") VotApp
-                if !user || !user.user.displayName
+                if !user.user
                     ul.right
                         li: a(href="/login/twitter").right Sign In with Twitter
                 else
@@ -25,10 +25,10 @@ html(lang="en")
                         li(class=route === "my-polls" ? "active" : ""): a(href="/my-polls") My Polls
                         li: a.dropdown-button(href="#!", data-activates="dropdown1") #{user.user.displayName}<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
                         ul(id='dropdown1', class='dropdown-content')
-                            li: a(href="/") Logout
+                            li: a(href="/logout") Logout
                     ul.side-nav#mobile-demo
                         li(class=route === "new-poll" ? "active" : ""): a(href="/new-poll") New Poll
                         li(class=route === "my-polls" ? "active" : ""): a(href="/my-polls") My Polls
                         li: a.dropdown-button(href="#!", data-activates="dropdown2") #{user.user.displayName}<i class="material-icons left" aria-hidden="true">perm_identity</i><i class="material-icons right">arrow_drop_down</i>
                         ul(id='dropdown2', class='dropdown-content')
-                            li: a(href="/") Logout
+                            li: a(href="/logout") Logout

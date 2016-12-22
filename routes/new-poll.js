@@ -12,7 +12,7 @@ router
         (req, res) => {
             let title = req.body.title,
                 options = [], 
-                session = req.session.passport;
+                session = req.session.passport  || {};
             
             Object.keys(req.body).forEach(k => {
                 if(k.toLowerCase().indexOf('option') > -1) 
