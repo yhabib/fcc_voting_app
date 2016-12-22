@@ -1,29 +1,28 @@
 let express = require('express'),
+    connectEnsureLogin = require('connect-ensure-login'),
     interface = require('./../model.interface'),
     router = express.Router();
 
 
 router
     .route('/')
-    .get((req, res) => {
-        res.render('new-poll', {user: {name: "Yusef"}, route: "new-poll"});
-    })
-    .post((req, res) => {
-        let title = req.body.title,
-            options = [], 
-            creator = "Yusef";
-        
-        Object.keys(req.body).forEach(k => {
-            if(k.toLowerCase().indexOf('option') > -1) 
-                options.push(req.body[k]);
-        });
+    .get(connectEnsureLogin.ensureLoggedIn('/login/twitter'), 
+        (req, res) => res.render('new-poll', {user: req.session.passport, route: "new-poll"}))
+    .post(connectEnsureLogin.ensureLoggedIn('/login/twitter'), 
+        (req, res) => {
+            let title = req.body.title,
+                options = [], 
+                session = req.session.passport;
+            
+            Object.keys(req.body).forEach(k => {
+                if(k.toLowerCase().indexOf('option') > -1) 
+                    options.push(req.body[k]);
+            });
 
-        // Get name of the creator:
-        interface.insertPoll({name: title, options: options, creator: creator}, err => {
-            if(err) throw err;
-            else res.redirect('/');
-        });   
-        
+            interface.insertPoll({name: title, options: options, creator: session.user.userName}, err => {
+                if(err) throw err;
+                else res.redirect('/');
+            });       
     });
 
 

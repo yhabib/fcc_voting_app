@@ -7,13 +7,14 @@ let express = require('express'),
 router
     .route('/')
     .get((req, res) => {
-        let filter = {}, 
-        projection = { name: 1, options: 1 };
-      
+        let session = req.session.passport,
+            filter = {}, 
+            projection = { name: 1, options: 1 };
+        
         interface.getPolls(filter, projection, (err, docs) => {            
             if(err) throw err;
             else 
-                res.render('index', {polls: docs, user: {}});
+                res.render('index', { polls: docs, user: session });
         });
     });
 

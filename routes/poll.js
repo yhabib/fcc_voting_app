@@ -1,4 +1,5 @@
 let express = require('express'),
+    connectEnsureLogin = require('connect-ensure-login'),
     interface = require('./../model.interface'),
     router = express.Router();
 
@@ -7,40 +8,42 @@ let express = require('express'),
 
 router
     .route('/:id')
-    .post((req, res) => {
-        const id = req.params.id,
-              user = "as",
-              value = req.body.value;
+    .post(connectEnsureLogin.ensureLoggedIn('/login/twitter'), 
+        (req, res) => {
+            let session = req.session.passport,
+                id = req.params.id,
+                user = "as",
+                value = req.body.value;
 
-        // If the user already voted -> nothign to do here
-        interface.findOneAndUpdate(id, user, value, (err, doc) => {
-            if(err) throw err;
-            if(doc) {
-                const count = [],
-                      labels = [];
-                
-                doc.options.forEach(option => {
-                    count.push(option.count);
-                    labels.push(option.value);
-                });
-                           
-                res.render('poll', {poll: doc, count: count, labels: labels, date: doc.createdTime.toDateString(), user: {name: "Yusef"}});
-            }
-            else
-                interface.getPollById(id, (err, doc) => {
-                    if(err) throw err;
-
+            // If the user already voted -> nothign to do here
+            interface.findOneAndUpdate(id, session.user.unerName, value, (err, doc) => {
+                if(err) throw err;
+                if(doc) {
                     const count = [],
-                          labels = [];
-                
+                        labels = [];
+                    
                     doc.options.forEach(option => {
                         count.push(option.count);
                         labels.push(option.value);
                     });
+                            
+                    res.render('poll', {poll: doc, count: count, labels: labels, date: doc.createdTime.toDateString(), user: session});
+                }
+                else
+                    interface.getPollById(id, (err, doc) => {
+                        if(err) throw err;
 
-                    res.render('poll', {poll: doc, count: count, labels: labels, date: doc.createdTime.toDateString(), user: {name: "Yusef"}});
-                });
-        });
+                        const count = [],
+                            labels = [];
+                    
+                        doc.options.forEach(option => {
+                            count.push(option.count);
+                            labels.push(option.value);
+                        });
+
+                        res.render('poll', {poll: doc, count: count, labels: labels, date: doc.createdTime.toDateString(), user: session});
+                    });
+            });
     });
 
 module.exports = router;
