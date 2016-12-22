@@ -47,9 +47,9 @@ let app = express()
     .use(passport.session())
     // Routes
     .use('/', home)
+    .use('/', auth)
     .use('/new-poll', newPoll)
     .use('/my-polls', myPolls)
-    .use('/poll', poll)
-    .use('/login/twitter', auth);
+    .use('/poll', poll);
 
 module.exports = app;
