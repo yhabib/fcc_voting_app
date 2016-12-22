@@ -38,7 +38,7 @@ passport.deserializeUser((obj, done) => done(null, obj));
 passport.use(new Strategy({
     consumerKey: process.env.VOTING_APP_CONSUMER_KEY,
     consumerSecret: process.env.VOTING_APP_CONSUMER_SECRET,
-    callbackURL: 'https://yhabib-voting-app.herokuapp.com//login/twitter/return'
+    callbackURL: 'https://yhabib-voting-app.herokuapp.com/login/twitter/return'
     // callbackURL: 'http://localhost:3000/login/twitter/return'
 },
     function (token, tokenSecret, profile, cb) {
